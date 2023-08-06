@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import { createTheme, ThemeProvider } from '@mui/material'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const theme = createTheme({
   palette: {
-    primary:{
+    primary: {
       main: '#2F7ECB',
       light: '#3999f7',
       dark: '#1b4670',
@@ -18,13 +21,15 @@ const theme = createTheme({
       dark: '#ff5436',
       contrastText: '#000'
     }
-  }
+  },
 })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )

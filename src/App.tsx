@@ -1,12 +1,17 @@
 import './App.css'
-import { Stack } from '@mui/material'
+import { ListItem, Stack } from '@mui/material'
 import { Header } from './components/Header/Header'
+import { Collections } from './components/Collections/Collections'
 
 function App() {
-
   return (
-    <Stack alignItems="center" height="100vh" mt={4}>
+    <Stack alignItems="center" mt={4}>
       <Header />
+      <Stack flexDirection='row' gap={2} p={4}>
+        <ListItem>
+          <Collections />
+        </ListItem>
+      </Stack>
     </Stack>
   )
 }
