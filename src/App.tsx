@@ -1,19 +1,21 @@
-import './App.css'
-import { ListItem, Stack } from '@mui/material'
-import { Header } from './components/Header/Header'
-import { Collections } from './components/Collections/Collections'
+import "./App.css";
+import { ListItem, Stack } from "@mui/material";
+import { Header } from "./components/Header/Header";
+import { Collections } from "./components/Collections/Collections";
 
 function App() {
-  return (
-    <Stack alignItems="center" mt={4}>
-      <Header />
-      <Stack flexDirection='row' gap={2} p={4}>
-        <ListItem>
-          <Collections />
-        </ListItem>
-      </Stack>
-    </Stack>
-  )
+    return (
+        <Stack alignItems="center" mt={4}>
+            <Header />
+            <Stack flexDirection="row" gap={2} p={4} width="100%">
+                <ListItem>
+                    <Collections />
+                </ListItem>
+                <ListItem></ListItem>
+                <ListItem></ListItem>
+            </Stack>
+        </Stack>
+    );
 }
 
-export default App
+export default App;
