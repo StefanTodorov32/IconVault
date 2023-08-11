@@ -1,16 +1,21 @@
 import { TextField } from "@mui/material";
+import { useState, useEffect, useContext } from "react";
 import { SearchResponse } from "../../types/types";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../../api/api";
-import { useState } from "react";
+import { IconContext } from "../../contexts/IconContext";
 export const Header = () => {
+    const { setSearchIcons } = useContext(IconContext);
     const [query, setQuery] = useState<string>("");
-    const { data: searchIcons } = useQuery<SearchResponse>({
-        queryKey: ["searchIcons"],
+    const { data } = useQuery<SearchResponse | null>({
+        queryKey: ["searchIcons", query],
         queryFn: () => api.searchIcons(query),
-        enabled: query.length > 0,
     });
-
+    useEffect(() => {
+        if (data) {
+            setSearchIcons(data);
+        }
+    });
     return (
         <div
             style={{

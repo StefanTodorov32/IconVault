@@ -2,6 +2,7 @@ import "./App.css";
 import { ListItem, Stack } from "@mui/material";
 import { Header } from "./components/Header/Header";
 import { Collections } from "./components/Collections/Collections";
+import { IconList } from "./components/IconList/IconList";
 
 function App() {
     return (
@@ -11,7 +12,9 @@ function App() {
                 <ListItem>
                     <Collections />
                 </ListItem>
-                <ListItem></ListItem>
+                <ListItem>
+                    <IconList />
+                </ListItem>
                 <ListItem></ListItem>
             </Stack>
         </Stack>
